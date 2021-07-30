@@ -1,20 +1,17 @@
 $global:progressPreference = 'silentlyContinue'
 # Build images
+cd D:\packer
 
-$repoPath='C:\Users\ContosoAdmin\Desktop\packer-windows'
-$vmName='windows_10'
-# Packer conf file. Should come from the pipeline input in the future
-$packerConfiguration="${vmName}.json"
+# Get Start Time
+$startDTM = (Get-Date)
 
-$diskName = "${vmName}.vhd"
-$outputDir = "${repoPath}\output-hyperv-iso\Virtual Hard Disks"
-$hypervSwitchName = "hyperv_switchname=vSwitch"
+packer build --only=hyperv-iso --var hyperv_switchname=vSwitch windows_10.json
 
+$endDTM = (Get-Date)
+Write-Host "[INFO]  - Elapsed Time: $(($endDTM-$startDTM).totalseconds) seconds" -ForegroundColor Yellow
 
-# Run packer
-cd $repoPath
-packer build --only=hyperv-iso --var hyperv_switchname=vSwitch $packerConfiguration
-
-# Convert disk
-Convert-VHD -Path "${outputDir}\${diskName}x" -DestinationPath "D:\packer\output\Virtual Hard Disks\packer-vm.vhd" -VHDType Fixed
+Convert-VHD -Path "D:\packer\output\Virtual Hard Disks\packer-vm.vhdx" -DestinationPath "D:\packer\output\Virtual Hard Disks\packer-vm.vhd" -VHDType Fixed
 (Get-VHD 'D:\packer\output\Virtual Hard Disks\packer-vm.vhd').FileSize | Out-File -FilePath D:\disksize
+
+
+
