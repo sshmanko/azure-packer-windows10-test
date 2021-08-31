@@ -7,6 +7,9 @@ Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformati
 Set-Service -Name w32time -StartupType Automatic
 
 powercfg /setactive SCHEME_MIN
+Set-ItemProperty "HKCU:\Control Panel\Desktop" -Name ScreenSaveActive -Value 0 -Type DWord
+& powercfg -x -monitor-timeout-ac 0
+& powercfg -x -monitor-timeout-dc 0
 
 Set-Service -Name bfe -StartupType Automatic
 Set-Service -Name dhcp -StartupType Automatic
