@@ -61,7 +61,7 @@
                     <InstallFrom>
                         <MetaData wcm:action="add">
                             <Key>/IMAGE/NAME</Key>
-                            <Value>Windows 10 Enterprise LTSC 2019 Evaluation</Value> <!-- https://stackoverflow.com/questions/53406500/windows-10-enterprise-ltsc-2019-image-name-in-autounattend-xml -->
+                            <Value>Windows 10 Enterprise LTSC 2019</Value> <!-- https://stackoverflow.com/questions/53406500/windows-10-enterprise-ltsc-2019-image-name-in-autounattend-xml -->
                         </MetaData>
                     </InstallFrom>
                 </OSImage>
