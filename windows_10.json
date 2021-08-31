@@ -12,9 +12,7 @@
       "switch_name": "vSwitch",
       "floppy_files": [
         "{{user `autounattend`}}",
-        "./scripts/fixnetwork.ps1",
         "./scripts/enable-winrm.ps1",
-        "./scripts/microsoft-updates.bat",
         "./scripts/win-updates.ps1"
       ],
       "boot_wait": "6m",
