@@ -5,7 +5,7 @@ cd D:\packer
 # Get Start Time
 $startDTM = (Get-Date)
 
-packer build .
+packer build windows_10.json
 
 $endDTM = (Get-Date)
 Write-Host "[INFO]  - Elapsed Time: $(($endDTM-$startDTM).totalseconds) seconds" -ForegroundColor Yellow
