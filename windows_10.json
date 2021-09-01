@@ -21,6 +21,9 @@
       "skip_compaction": "true",
       "skip_export": "true",
       "communicator": "winrm",
+      "winrm_port": "5986",
+      "winrm_use_ssl": "true",
+      "winrm_insecure": "true",
       "winrm_timeout": "{{user `winrm_timeout`}}",
       "winrm_username": "ContosoAdmin",
       "winrm_password": "Password123",
@@ -31,7 +34,6 @@
     {
       "scripts": [
         "./scripts/prepare-for-upload-vhd-image.ps1",
-        "./scripts/enable-winrm-https.ps1",
         "./scripts/compact.ps1"
       ],
       "type": "powershell"
