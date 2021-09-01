@@ -2,7 +2,9 @@ Enable-PSRemoting -SkipNetworkProfileCheck -Force
 
 $thumbprint = (New-SelfSignedCertificate -DnsName $env:COMPUTERNAME -CertStoreLocation Cert:\LocalMachine\My).Thumbprint
 
-winrm create winrm/config/Listener?Address=*+Transport=HTTPS '@{Hostname="$env:computername";CertificateThumbprint="$thumbprint"}'
+$command = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostname=""$env:computername""; CertificateThumbprint=""$thumbprint""}"
+cmd.exe /C $command
+
 winrm set winrm/config '@{MaxTimeoutms="1800000"}'
 winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="1024"}'
 winrm set winrm/config/service/auth '@{Basic="true"}'
