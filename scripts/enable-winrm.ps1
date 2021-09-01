@@ -1,7 +1,13 @@
+$NetworkListManager = [Activator]::CreateInstance([Type]::GetTypeFromCLSID([Guid]"{DCB00C01-570F-4A9B-8D69-199FDBA5723B}"))
+$Connections = $NetworkListManager.GetNetworkConnections()
+$Connections | ForEach-Object { $_.GetNetwork().SetCategory(1) }
+
 Enable-PSRemoting -SkipNetworkProfileCheck -Force
 
 $thumbprint = (New-SelfSignedCertificate -DnsName $env:COMPUTERNAME -CertStoreLocation Cert:\LocalMachine\My).Thumbprint
 
+winrm quickconfig -q
+winrm quickconfig -transport:https
 winrm set winrm/config/listener?Address=*+Transport=HTTPS '@{Hostname="$env:computername";CertificateThumbprint="$thumbprint"}'
 winrm set winrm/config '@{MaxTimeoutms="1800000"}'
 winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="1024"}'
