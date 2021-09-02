@@ -16,8 +16,3 @@ function Optimize-PowershellAssemblies {
   }
 }
 Optimize-PowershellAssemblies
-
-# Disable Prefetch svc and telemetry
-Set-Service SysMain -startuptype "disabled"
-Stop-Service -Name "SysMain"
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" -Name "AllowTelemetry" -Type DWord -Value 0

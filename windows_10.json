@@ -13,6 +13,7 @@
       "floppy_files": [
         "{{user `autounattend`}}",
         "./scripts/enable-winrm.ps1",
+        "./scripts/disable-telemetry.ps1",
         "./scripts/win-updates.ps1"
       ],
       "boot_wait": "6m",
