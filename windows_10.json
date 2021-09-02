@@ -36,17 +36,23 @@
       "scripts": [
         "./scripts/prepare-for-upload-vhd-image.ps1",
         "./scripts/optimize_powershell.ps1",
-        "./scripts/install_azure_agent.ps1",
-        "./scripts/compact.ps1"
+        "./scripts/install_azure_agent.ps1"
       ],
+      "type": "powershell"
+    },
+    {
+      "type": "windows-restart"
+    },
+    {
+      "scripts": ["./scripts/compact.ps1"],
       "type": "powershell"
     }
   ],
   "variables": {
     "autounattend": "./answer_files/Autounattend.xml",
     "disk_size": "32000",
-    "cpus": "4",
-    "memory": "4096",
+    "cpus": "6",
+    "memory": "8192",
     "headless": "false",
     "iso_checksum": "sha256:B570DDFDC4672F4629A95316563DF923BD834AEC657DE5D4CA7C7EF9B58DF2B1",
     "iso_url": "https://isofiles.bd581e55.workers.dev/Windows%2010/Windows%2010%20Enterprise%20LTSC%202019/17763.316%20-%20February%202019/en_windows_10_enterprise_ltsc_2019_x64_dvd_5795bb03.iso",

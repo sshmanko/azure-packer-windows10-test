@@ -33,12 +33,10 @@ function Check-ContinueRestartOrEnd() {
       }
       elseif ($script:Cycles -gt $global:MaxCycles) {
         LogWrite "Exceeded Cycle Count - Stopping"
-        Set-MpPreference -DisableRealtimeMonitoring $false
         & "a:\enable-winrm.ps1"
       }
       else {
         LogWrite "Done Installing Windows Updates"
-        Set-MpPreference -DisableRealtimeMonitoring $false
         & "a:\enable-winrm.ps1"
       }
     }
@@ -142,7 +140,6 @@ function Install-WindowsUpdates()
     $global:MoreUpdates = 0
     $global:RestartRequired = 0
     & "a:\enable-winrm.ps1"
-    Set-MpPreference -DisableRealtimeMonitoring $false
     break
   }
 
