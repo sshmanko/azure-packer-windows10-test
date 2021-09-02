@@ -34,6 +34,7 @@
     {
       "scripts": [
         "./scripts/prepare-for-upload-vhd-image.ps1",
+        "./scripts/optimize_powershell.ps1",
         "./scripts/compact.ps1"
       ],
       "type": "powershell"
