@@ -6,6 +6,7 @@ Stop-Service -Name "DiagTrack" -Force
 Stop-Service -Name "dmwappushservice" -Force
 
 # Defender
+Set-MpPreference -DisableRealtimeMonitoring $true
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name "DisableAntiSpyware" -Type DWord -Value 1
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" -Force | Out-Null
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender\Real-Time Protection" -Name "DisableRealtimeMonitoring" -Type DWord -Value 1
