@@ -67,7 +67,6 @@ function Install-WindowsUpdates()
   param()
   $script:Cycles++
   LogWrite "Evaluating Available Updates with limit of $($MaxUpdatesPerCycle):"
-  Set-MpPreference -DisableRealtimeMonitoring $true
   $UpdatesToDownload = New-Object -ComObject 'Microsoft.Update.UpdateColl'
   $script:i = 0;
   $CurrentUpdates = $SearchResult.Updates
