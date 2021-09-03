@@ -1,5 +1,5 @@
 # Finish background tasks post reboot
-Start-Sleep -s 900
+Start-Sleep -s 120
 
 Get-Service -Name wuauserv | Stop-Service -Force -ErrorAction SilentlyContinue
 Get-ChildItem "C:\Windows\SoftwareDistribution\*" -Recurse -Force -ErrorAction SilentlyContinue | Remove-Item -Force  -recurse -ErrorAction SilentlyContinue

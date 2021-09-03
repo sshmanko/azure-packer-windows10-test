@@ -35,8 +35,7 @@
     {
       "scripts": [
         "./scripts/prepare-for-upload-vhd-image.ps1",
-        "./scripts/optimize_powershell.ps1",
-        "./scripts/install_azure_agent.ps1"
+        "./scripts/optimize_powershell.ps1"
       ],
       "type": "powershell"
     },
