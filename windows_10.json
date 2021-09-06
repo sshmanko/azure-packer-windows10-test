@@ -50,7 +50,7 @@
   ],
   "variables": {
     "autounattend": "./answer_files/Autounattend.xml",
-    "disk_size": "32000",
+    "disk_size": "30000",
     "cpus": "6",
     "memory": "8192",
     "headless": "false",
