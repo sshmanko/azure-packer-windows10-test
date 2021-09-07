@@ -28,7 +28,7 @@
       "winrm_timeout": "{{user `winrm_timeout`}}",
       "winrm_username": "ContosoAdmin",
       "winrm_password": "Password123",
-      "output_directory": "output"
+      "output_directory": "C:\packer\output"
     }
   ],
   "provisioners": [
@@ -51,7 +51,7 @@
   "variables": {
     "autounattend": "./answer_files/Autounattend.xml",
     "disk_size": "30000",
-    "cpus": "6",
+    "cpus": "4",
     "memory": "8192",
     "headless": "false",
     "iso_checksum": "sha256:B570DDFDC4672F4629A95316563DF923BD834AEC657DE5D4CA7C7EF9B58DF2B1",
